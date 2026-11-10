@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Emitir Señal - Radio Proximidad 100km{% endblock %}
+
+{% block content %}
+<div style="display: flex; flex-direction: column; gap: 20px;">
+    
+    <!-- Encabezado de la Sección -->
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #30363d; padding-bottom: 15px;">
+        <h2 style="margin: 0; color: #ff5555;">🔴 Consola de Emisión</h2>
+        <a href="/" class="btn" style="background-color: #30363d; color: #c9d1d9;">Volver</a>
+    </div>
+
+    <!-- Panel de Control de Transmisión -->
+    <div style="background: #0d1117; padding: 20px; border-radius: 8px; border: 1px solid #ff5555; text-align: center;">
+        <h3 style="margin-top: 0; color: #ffffff;">Transmitir a 100 km a la Redonda</h3>
+        <p style="color: #8b949e; font-size: 0.9rem;">
+            Al iniciar, tu dispositivo transmitirá audio y presencia a todos los oyentes dentro de un radio estricto de 100 km desde tu posición actual.
+        </p>
+
+        <!-- Configuración de Identificador de la Radio -->
+        <div style="max-width: 400px; margin: 20px auto; text-align: left;">
+            <label for="alias-input" style="font-size: 0.85rem; color: #8b949e; display: block; margin-bottom: 6px;">Nombre de tu Emisora / Alias:</label>
+            <input type="text" id="alias-input" placeholder="Ej: Radio Emergencia Talca" 
+                   style="width: 100%; background: #161b22; border: 1px solid #30363d; color: #c9d1d9; padding: 10px; border-radius: 6px; box-sizing: border-box;">
+        </div>
+
+        <!-- Botón de Transmisión -->
+        <div style="margin-top: 25px;">
+            <button id="btn-start-tx" class="btn btn-emitir" style="font-size: 1.1rem; padding: 15px 35px;">
+                EMITIR SEÑAL
+            </button>
+        </div>
+    </div>
+
+    <!-- Chat Integrado para el Emisor -->
+    <div style="background: #0d1117; padding: 15px; border-radius: 8px; border: 1px solid #30363d;">
+        <h3 style="margin-top: 0; color: #ffffff; font-size: 1rem;">💬 Chat con Oyentes Locales (&lt; 100 km)</h3>
+        
+        <!-- Caja de Mensajes -->
+        <div id="chat-messages" 
+             style="height: 200px; background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 10px; overflow-y: auto; margin-bottom: 12px; font-family: monospace;">
+            <div style="color: #8b949e; font-style: italic;">Los mensajes de los oyentes a menos de 100 km aparecerán aquí en tiempo real.</div>
+        </div>
+
+        <!-- Entrada de Texto para Responder -->
+        <div style="display: flex; gap: 10px;">
+            <input type="text" id="chat-input" placeholder="Escribe una respuesta a tus oyentes..." 
+                   style="background: #161b22; border: 1px solid #30363d; color: #ffffff; padding: 10px; border-radius: 6px; flex-grow: 1;">
+            <button id="send-btn" class="btn btn-emitir" style="margin: 0;">Enviar</button>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

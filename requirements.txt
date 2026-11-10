@@ -1,0 +1,13 @@
+Flask==3.0.2
+
+Flask-SocketIO==5.3.6
+
+python-socketio==5.11.1
+
+eventlet==0.35.2
+
+geopy==2.4.1
+
+python-dotenv==1.0.1
+
+gunicorn==21.2.0

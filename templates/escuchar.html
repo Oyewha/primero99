@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Escuchar Radio - Radio Proximidad 100km{% endblock %}
+
+{% block content %}
+<div style="display: flex; flex-direction: column; gap: 20px;">
+    
+    <!-- Encabezado de la Sección -->
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #30363d; padding-bottom: 15px;">
+        <h2 style="margin: 0;">📻 Emisoras Cercanas (&lt; 100 km)</h2>
+        <a href="/" class="btn" style="background-color: #30363d; color: #c9d1d9;">Volver</a>
+    </div>
+
+    <!-- Sección del Reproductor / Emisoras Disponibles -->
+    <div style="background: #0d1117; padding: 15px; border-radius: 8px; border: 1px solid #30363d;">
+        <h3 style="margin-top: 0; color: #50fa7b; font-size: 1rem;">Señales encontradas en tu zona:</h3>
+        <div id="emisores-list">
+            <p style="color: #8b949e;">Esperando señal GPS para escanear emisoras a 100 km a la redonda...</p>
+        </div>
+    </div>
+
+    <!-- Sección del Chat en Vivo -->
+    <div style="background: #0d1117; padding: 15px; border-radius: 8px; border: 1px solid #30363d;">
+        <h3 style="margin-top: 0; color: #ffffff; font-size: 1rem;">💬 Chat de la Frecuencia (Solo rango local)</h3>
+        
+        <!-- Configuración de Alias Anónimo -->
+        <div style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;">
+            <label for="alias-input" style="font-size: 0.85rem; color: #8b949e;">Tu Alias:</label>
+            <input type="text" id="alias-input" placeholder="Ej: Oyente_Talca" 
+                   style="background: #161b22; border: 1px solid #30363d; color: #c9d1d9; padding: 6px 12px; border-radius: 6px; flex-grow: 1;">
+        </div>
+
+        <!-- Caja de Mensajes -->
+        <div id="chat-messages" 
+             style="height: 250px; background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 10px; overflow-y: auto; margin-bottom: 12px; font-family: monospace;">
+            <div style="color: #8b949e; font-style: italic;">Los mensajes enviados y recibidos solo se difunden dentro del radio de 100 km.</div>
+        </div>
+
+        <!-- Entrada de Texto para Chatear -->
+        <div style="display: flex; gap: 10px;">
+            <input type="text" id="chat-input" placeholder="Escribe un mensaje de emergencia o reporte..." 
+                   style="background: #161b22; border: 1px solid #30363d; color: #ffffff; padding: 10px; border-radius: 6px; flex-grow: 1;">
+            <button id="send-btn" class="btn btn-escuchar" style="margin: 0;">Enviar</button>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

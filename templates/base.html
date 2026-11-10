@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Radio Proximidad 100km{% endblock %}</title>
+    
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- Librería Socket.IO para comunicación en tiempo real -->
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    
+    <!-- JS Principal del Proyecto -->
+    <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</head>
+<body>
+
+    <!-- Encabezado Global -->
+    <header style="background: #161b22; border-bottom: 1px solid #30363d; padding: 15px 0;">
+        <div style="max-width: 800px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center;">
+            <a href="/" style="color: #ffffff; text-decoration: none; font-size: 1.2rem; font-weight: bold;">
+                📻 RadioLocal<span style="color: #50fa7b; font-size: 0.8rem;"> 100KM</span>
+            </a>
+            
+            <!-- Estado de la Geolocalización GPS -->
+            <div id="geo-status" style="font-size: 0.85rem; color: #8b949e;">
+                Buscando GPS...
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Dinámico de las Páginas -->
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Pie de Página Minimalista -->
+    <footer style="text-align: center; margin-top: 40px; padding: 20px 0; color: #8b949e; font-size: 0.85rem;">
+        <p>Radio Proximidad - Red comunitaria por coordenadas a < 100 km. Sin registros ni almacenamiento de usuarios.</p>
+    </footer>
+
+</body>
+</html>
